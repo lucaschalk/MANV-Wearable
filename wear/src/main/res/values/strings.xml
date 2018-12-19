@@ -52,4 +52,5 @@
     <!-- Strings for showing last answer -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="action_settings">Settings</string>
 </resources>
