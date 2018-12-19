@@ -1,0 +1,55 @@
+<resources>
+    <!-- Name of the app and start command -->
+    <string name="appName">MANV - Vorsichtung</string>
+
+    <!-- Strings for menu interaction -->
+    <string name="confirm">Bestätigen</string>
+    <string name="goBack">Stornieren</string>
+    <string name="exitPatient">Zurück ins Hauptmenü</string>
+    <string name="newPatient">Neuen Patienten sichten</string>
+    <string name="exitApp">Anwendung beenden</string>
+
+    <!-- Strings for questions of mstart algorithm -->
+    <string name="question1">Patient gehfähig?</string>
+    <string name="question2">Tödliche Verletzung?</string>
+    <string name="question3">Spontanatmung fehlt?</string>
+    <string name="question4">Atemfrequenz\nÜber 30/min?\nUnter 10/min?</string>
+    <string name="question5">Spritzende Blutung?</string>
+    <string name="question6">Radialispuls fehlt?</string>
+    <string name="question7">Unfähig, einfachen Befehlen zu folgen?</string>
+
+    <!-- Strings for questions of prior algorithm -->
+    <string name="question21">Lebensbedrohende Blutung?</string>
+    <string name="question22">Patient bewusstlos?</string>
+    <string name="question23">Atemstörung?</string>
+    <string name="question24">Kreislaufstörung?</string>
+    <string name="question25">Bewusstseins- störung?</string>
+    <string name="question26">Starke Schmerzen?(am Körperstamm)</string>
+    <string name="question27">Patient liegend? (kann nicht ohne Hilfe gehen)</string>
+
+    <!-- Strings for instructions -->
+    <string name="action1">Todesfeststellung durch Arzt (EKG)</string>
+    <string name="action2">Blutstillung (Druckverband)</string>
+    <string name="action3">Spontanatmung nach Freimachen der Atemwege?</string>
+    <string name="inspectionIfDead">Todesfeststellung</string>
+    <string name="inspectionIfDeadQuestion">Todesfeststellung durch Arzt!</string>
+    <string name="spontaneousBreathing">Spontanatmung</string>
+    <string name="spontaneousBreathingQuestion">Atemwege freimachen! Spontanatmung?</string>
+    <string name="bleedingControl">Blutstillung</string>
+    <string name="bleedingControlInst">Blutstillung mit Druckverband!</string>
+    <string name="stopbleeding">Blutung stoppen</string>
+    <string name="transport">schnellstmöglicher Transport</string>
+    <string name="lateralposition">Seitenlage</string>
+
+    <!-- Strings for classification -->
+    <string name="catRed">Kat. I - rot</string>
+    <string name="catYellow">Kat. II - gelb</string>
+    <string name="catGreen">Kat. III - grün</string>
+    <string name="catBlack">Kat. IV - schwarz</string>
+    <string name="catAction">Karte anhängen!</string>
+    <string name="catID">ID: 95281</string>
+
+    <!-- Strings for showing last answer -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

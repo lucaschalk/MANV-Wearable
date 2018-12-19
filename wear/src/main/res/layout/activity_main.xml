@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wearable.view.BoxInsetLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="imis.vorsichtung.activities.MainActivity"
+    tools:deviceIds="wear"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!-- 1st layer: divides the display in one header and multiple content screens -->
+    <LinearLayout
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ************************************** -->
+
+        <!-- Header: includes the patient-id and the back-button  -->
+        <GridLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:orientation="horizontal"
+            tools:context=".activities.MainActivity">
+
+            <!-- Patient ID Text : ATTENTION! Switches interaction mode on click! -->
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="23dp"
+                android:layout_height="21dp"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/settings"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/patientButton"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/patient"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/back"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:text="@string/appName"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/patientID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:text="@string/appName"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <!-- Back Button -->
+
+        </GridLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+        <!-- End of Header -->
+
+        <!-- Divider Line -->
+
+
+        <!-- ************************************** -->
+
+        <!-- Question Screen -->
+        <!-- End of Question Screen -->
+
+        <!-- ************************************** -->
+
+        <!-- Action Screen -->
+        <LinearLayout
+            android:id="@+id/questionScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Question Text -->
+            <TextView
+                android:id="@+id/questionText"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/question1"
+                android:textColor="@color/black"
+                android:textIsSelectable="false"
+                android:textSize="21sp" />
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/grey"
+                android:visibility="visible" />
+
+            <!-- Navigation Area -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:orientation="horizontal"
+                android:rowCount="1">
+
+                <!-- Positive Button -->
+                <ImageButton
+                    android:id="@+id/positiveButton"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginStart="20dp"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/positive" />
+
+                <!-- Negative Button -->
+                <ImageButton
+                    android:id="@+id/negativeButton"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_marginStart="35dp"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/negative"
+                    android:visibility="gone" />
+
+                <!-- Swipe Pictogram Positive/Negative-->
+                <ImageView
+                    android:id="@+id/swipePositiveNegative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginStart="-8dp"
+                    android:src="@drawable/swipe"
+                    tools:ignore="ContentDescription" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actionScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Action Text -->
+            <TextView
+                android:id="@+id/actionText"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/action1"
+                android:textColor="@color/black"
+                android:textSize="21sp" />
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/grey" />
+
+            <!-- Navigation Area -->
+
+            <!-- Confirm Button -->
+            <Button
+                android:id="@+id/confirmAct"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:text="@string/confirm"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <!-- Swipe Pictogram Confirm -->
+            <LinearLayout
+                android:id="@+id/confirmSwipe1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/confirm" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/confirm"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- End of Action Screen -->
+
+        <!-- ************************************** -->
+
+        <!-- Constants Screen -->
+        <LinearLayout
+            android:id="@+id/categoryScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Constants Texts -->
+            <LinearLayout
+                android:id="@+id/categorizationText"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/dark_red"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/catColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/catRed"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-3dp"
+                    android:gravity="center"
+                    android:text="@string/catAction"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/catID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/catID"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:id="@+id/separator2"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/grey"
+                android:visibility="visible" />
+
+            <!-- Navigation Area -->
+
+            <!-- Confirm Button -->
+
+            <!-- Swipe Pictogram Confirm -->
+            <Button
+                android:id="@+id/confirmKat"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:text="@string/confirm"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/confirmSwipe2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/confirm" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/confirm"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- End of Constants Screen -->
+
+        <!-- ************************************** -->
+
+        <!-- Back Menu Screen -->
+        <LinearLayout
+            android:id="@+id/backMenuScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/editLastQuestionButton"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:clickable="true"
+                android:text="@string/goBack" />
+
+            <Button
+                android:id="@+id/goToMainMenuButton"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:clickable="true"
+                android:text="@string/exitPatient" />
+
+        </LinearLayout>
+        <!-- End of Back Menu Screen -->
+
+        <!-- ************************************** -->
+
+        <!-- Main Menu Screen -->
+        <LinearLayout
+            android:id="@+id/mainMenuScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/newPatientButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newPatient" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/categorizationButton"
+                    android:layout_width="23dp"
+                    android:layout_height="22dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/patient"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="19/20 übertragen" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/exitAppButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exitApp" />
+        </LinearLayout>
+        <!-- End of Main Menu Screen -->
+
+        <!-- ************************************** -->
+
+        <!-- Settings Screen -->
+        <LinearLayout
+            android:id="@+id/settingsScreen"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Switch
+                android:id="@+id/swipeInteractionSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Swipe Interaction" />
+
+            <Switch
+                android:id="@+id/switch5"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:text="Switch" />
+
+        </LinearLayout>
+
+        <!-- End of Settings Screen -->
+
+        <!-- Overview Screen -->
+        <LinearLayout
+            android:id="@+id/overviewScreen"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/patientAmount"
+                    android:layout_width="103dp"
+                    android:layout_height="wrap_content"
+                    android:text="Insgesamt 1337 Verletze" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="103dp"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/greenCatAmount"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/yellowCatAmount"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/redCatAmount"
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/blackCatAmount"
+                        android:layout_width="133dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- End of Settings Screen -->
+
+    </LinearLayout>
+    <!-- End of 1st layer -->
+
+<!-- ************************************** -->
+
+    <!-- Long Press To Dismiss -->
+
+</android.support.wearable.view.BoxInsetLayout>
+
+
+
+
